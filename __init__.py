@@ -28,7 +28,16 @@ def enregistrer():
     cursor.execute('INSERT INTO livres (titre, auteur_prenom, auteur_nom) VALUES (?,?,?)', (titre, auteur_prenom, auteur_nom))
     conn.execute()
     conn.close()
-    return redirect('/enregistrerLivre')
+    return redirect(url_for('readBB'))
+
+@app.route('/consultationLivre')
+def readBB():
+    conn= sqlite3.connect('database2.db')
+    cursor= conn.cursor()
+    cursor.execute('SELECT * from livres;')
+    data= cursor.fetchall()
+    conn.close()
+    return render_template('consulter_livres.html', data=data)
 
 if __name__ == "__main__":
     app.run(debug=True)
