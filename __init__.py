@@ -12,11 +12,11 @@ app = Flask(__name__)
 def menu():
     return "<h1>Page d'acceuil</h1>"
 
-@app.route('/enregistrerLivre', methods=['POST'])
+@app.route('/enregistrerLivre', methods=['GET'])
 def formulaire_enregistrerLivre():
     return render_template("enregistrer_livre.html")
 
-@app.route('/enregistrerLivre', methods=['GET'])
+@app.route('/enregistrerLivre', methods=['POST'])
 def enregistrer():
     titre= request.form['titre']
     auteur_nom= request.form['nom']
