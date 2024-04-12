@@ -1,6 +1,6 @@
 function deleteRow(rowId) {
-    var rowElement = document.getElementById('row_' + rowId);
-    var id = rowElement.cells[0].textContent; // Récupère l'ID à partir de la première colonne
+    var rowElement = document.getElementById(rowId);
+    var id = rowElement.cells[0].textContent; 
     fetch('/delete/' + id, {
         method: 'DELETE',
     })

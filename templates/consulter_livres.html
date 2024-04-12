@@ -18,12 +18,12 @@
             </tr>
             
                 {% for row in data %}
-            <tr id="row_{{ loop.index }}">
+            <tr id="{{row[0]}}">
                 <td>{{ row[0] }}</td>
                 <td>{{ row[1] }}</td>
                 <td>{{ row[2] }}</td>
                 <td>{{ row[3] }}</td>
-                <td style="border: none;"><button class="btn btn-delete" onclick="deleteRow({{ loop.index }})">supprimer</button></td>
+                <td style="border: none;"><button class="btn btn-delete" onclick="deleteRow({{row[0]}})">supprimer</button></td>
             </tr>
                 {% endfor %}
         </table>
