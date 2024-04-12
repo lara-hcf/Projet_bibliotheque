@@ -12,9 +12,23 @@ app = Flask(__name__)
 def menu():
     return "<h1>Page d'acceuil</h1>"
 
-@app.route('/enregistrerLivre')
-def enregister():
+@app.route('/enregistrerLivre', methods=['POST'])
+def formulaire_enregistrerLivre():
     return render_template("enregistrer_livre.html")
+
+@app.route('/enregistrerLivre', methods=['GET'])
+def enregistrer():
+    titre= request.form['titre']
+    auteur_nom= request.form['nom']
+    auteur_prenom= request.form['prenom']
+
+    conn= sqlite3.connect('database2.db')
+    cursor= conn.cursor()
+
+    cursor.execute('INSERT INTO livres (titre, auteur_prenom, auteur_nom) VALUES (?,?,?)', (titre, auteur_prenom, auteur_nom))
+    conn.execute()
+    conn.close()
+    return redirect('/enregistrerLivre')
 
 if __name__ == "__main__":
     app.run(debug=True)

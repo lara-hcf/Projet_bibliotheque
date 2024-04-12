@@ -1,8 +1,20 @@
 <html>
     <header>
         <title>Enregistrement d'un livre</title>
+        <link rel="stylesheet" href="../static/css/style.css">
     </header>
     <body>
         <h1>Enregistrement d'un livre</h1>
+        <form action="/enregistrerLivre" method="post">
+            <div class="col-3">
+                <label for="titre">Titre du livre</label> <br>
+                <input type="text" name="titre" class="col-5"> <br>
+                <label for="prenom">Prenom de l'auteur</label> <br>
+                <input type="text" name="prenom" class="col-5"> <br>
+                <label for="nom">Nom de l'auteur</label> <br>
+                <input type="text" name="nom" class="col-5"> <br>
+            </div> <br>
+            <input type="submit" value="envoyer" class="btn">
+        </form>
     </body>
 </html>
