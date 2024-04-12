@@ -25,8 +25,8 @@ def enregistrer():
     conn= sqlite3.connect('database2.db')
     cursor= conn.cursor()
 
-    cursor.execute('INSERT INTO livres (id, titre, auteur_prenom, auteur_nom) VALUES (?,?,?,?)', (100, titre, auteur_prenom, auteur_nom))
-    conn.execute()
+    cursor.execute('INSERT INTO livres (titre, auteur_prenom, auteur_nom) VALUES (?,?,?)', (titre, auteur_prenom, auteur_nom))
+    conn.commit()
     conn.close()
     return redirect('/consultationLivre')
 
