@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def menu():
-    return "<h1>Page d'acceuil</h1>"
+    return render_template('index.html')
 
 @app.route('/enregistrerLivre', methods=['GET'])
 def formulaire_enregistrerLivre():
@@ -25,7 +25,7 @@ def enregistrer():
     conn= sqlite3.connect('database2.db')
     cursor= conn.cursor()
 
-    cursor.execute('INSERT INTO livres (titre, auteur_prenom, auteur_nom) VALUES (?,?,?)', (titre, auteur_prenom, auteur_nom))
+    cursor.execute('INSERT INTO livres (id, titre, auteur_prenom, auteur_nom) VALUES (?,?,?,?)', (1, titre, auteur_prenom, auteur_nom))
     conn.execute()
     conn.close()
     return redirect('/consultationLivre')
