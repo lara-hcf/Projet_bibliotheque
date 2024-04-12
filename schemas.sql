@@ -5,5 +5,4 @@ CREATE TABLE livres (
     date_publication DATE,
     auteur_prenom TEXT NOT NULL, 
     auteur_nom TEXT NOT NULL
-
 )
