@@ -39,7 +39,7 @@ def readBB():
     conn.close()
     return render_template('consulter_livres.html', data=data)
 
-@app.route('/delete/<int:id>', methods=['DELETE'])
+@app.route('/delete/<int:id>')
 def delete_entry(id):
     conn= sqlite3.connect('database2.db')
     cursor= conn.cursor()
