@@ -31,3 +31,6 @@ input {
 .btn:hover {
     box-shadow: 2px 2px grey;
 }
+table {
+    border: 1px black solid;
+}
