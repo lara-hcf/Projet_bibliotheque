@@ -7,7 +7,7 @@ with open('schemas.sql') as f:
 
 cur= connection.cursor()
 
-cur.execute("INSERT INTO livres (titre,auteur_prenom, auteur_nom) VALUES (?,?,?)", ('Chez le roi merlin','Arthur','Jean'))
+cur.execute("INSERT INTO livres (titre,auteur_nom,nb_exemplaire) VALUES (?,?,?)", ('Chez le roi merlin','Jean de la fontaine','15'))
 
 connection.commit()
 connection.close()

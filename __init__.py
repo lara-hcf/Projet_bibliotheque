@@ -20,12 +20,12 @@ def formulaire_enregistrerLivre():
 def enregistrer():
     titre= request.form['titre']
     auteur_nom= request.form['nom']
-    auteur_prenom= request.form['prenom']
+    quantite= request.form['quantite']
 
     conn= sqlite3.connect('database2.db')
     cursor= conn.cursor()
 
-    cursor.execute('INSERT INTO livres (titre, auteur_prenom, auteur_nom) VALUES (?,?,?)', (titre, auteur_prenom, auteur_nom))
+    cursor.execute('INSERT INTO livres (titre,auteur_nom,nb_exemplaire) VALUES (?,?,?)', (titre,auteur_nom, quantite))
     conn.commit()
     conn.close()
     return redirect('/consultationLivre')
