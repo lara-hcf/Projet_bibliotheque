@@ -1,0 +1,25 @@
+<html lang="fr">
+    <header>
+        <title>Consultation</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/style.css">
+    </header>
+    <body>
+        <h1>Consultation des livres</h1>
+        <table>
+            <tr>
+                <th>titre</th>
+                <th>nom de l'auteur</th>
+                <th>prenom de l'auteur</th>
+            </tr>
+            
+                {% row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
