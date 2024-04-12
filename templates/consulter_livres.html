@@ -3,24 +3,29 @@
         <title>Consultation</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../static/css/style.css">
+        <script src="../static/js/javascript.js"></script>
     </header>
     <body>
         <h1>Consultation des livres</h1>
+        <a href="/enregistrerLivre"><button class="btn" style="width: 150px; margin-bottom: 20px;">Enregistrer livre</button></a>
+        
         <table>
             <tr>
+                <th>ID</th>
                 <th>titre</th>
                 <th>nom de l'auteur</th>
                 <th>prenom de l'auteur</th>
             </tr>
             
                 {% for row in data %}
-            <tr>
+            <tr id="row_{{ loop.index }}">
                 <td>{{ row[0] }}</td>
                 <td>{{ row[1] }}</td>
                 <td>{{ row[2] }}</td>
                 <td>{{ row[3] }}</td>
+                <td style="border: none;"><button class="btn btn-delete" onclick="deleteRow({{ loop.index }})">supprimer</button></td>
             </tr>
-            {% endfor %}
+                {% endfor %}
         </table>
     </body>
 </html>

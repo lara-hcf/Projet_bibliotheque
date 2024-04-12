@@ -34,3 +34,7 @@ input {
 td, th {
     border: 1px black solid;
 }
+.btn-delete {
+    background-color: red;
+    border: 1px red solid;
+}
